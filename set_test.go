@@ -95,4 +95,15 @@ func TestNewSet(t *testing.T) {
 	if w == nil {
 		t.Error("NewSet() returned nil")
 	}
+	x := NewSet[chan int]()
+	if x == nil {
+		t.Error("NewSet() returned nil")
+	}
+	// testing a custom type with underlying type comparable
+	type hotdog int
+	y := NewSet[hotdog]()
+	if y == nil {
+		t.Error("NewSet() returned nil")
+	}
+
 }
