@@ -5,6 +5,7 @@ A set can be instantiated from any [comparable](https://golang.org/ref/spec#Comp
 
 ## Usage
 
+The current implementation of `set` is not concurrency safe, although this addition is welcome / will be added as I continue to develop.
 ```go
     mySet := set.NewSet[int]()
     mySet.Add(1)
