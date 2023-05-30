@@ -1,8 +1,7 @@
-// package set implements the set data structure, and its common methods
+// Package set implements the set data structure, and its common methods
 // leveraging the fact that all comparable types are hashable in Go
 // and empty structs occupy no memory, we can use a map[T]struct{} to
-// implement a set.
-// The methods are implemented as described in https://doc.rust-lang.org/std/collections/struct.HashSet.html (inc)
+// implement a set. The zero value of a set is an empty set.
 // The underlying map is only accessible via the methods of the set.
 package set
 
@@ -20,6 +19,15 @@ func NewSet[T comparable]() *Set[T] {
 	}
 }
 
+// NewSetFromSlice returns a new set from a slice
+func NewSetFromSlice[T comparable](s []T) *Set[T] {
+	set := NewSet[T]()
+	for _, v := range s {
+		set.Add(v)
+	}
+	return set
+}
+
 // Add adds an element to the set
 func (s *Set[T]) Add(e T) {
 	s.m[e] = struct{}{}
@@ -34,6 +42,16 @@ func (s *Set[T]) Contains(e T) bool {
 // Remove removes an element from the set
 func (s *Set[T]) Remove(e T) {
 	delete(s.m, e)
+}
+
+// Pop removes and returns an arbitrary element from the set or returns the zero value of T if the set is empty
+func (s *Set[T]) Pop() T {
+	var zero T
+	for k := range s.m {
+		s.Remove(k)
+		return k
+	}
+	return zero
 }
 
 // Intersection returns the intersection of two sets as a new set IE the values that are in both sets
@@ -174,13 +192,6 @@ func (s *Set[T]) Map(f func(T) T) *Set[T] {
 		s2.Add(f(k))
 	}
 	return s2
-}
-
-// ForEach applies the function to each element in the set
-func (s *Set[T]) ForEach(f func(T)) {
-	for k := range s.m {
-		f(k)
-	}
 }
 
 // Reduce applies the function to each element in the set and returns the result
