@@ -1,0 +1,23 @@
+name: "🎨 Design Suggestion Request"
+description: Create a new ticket for design suggestions
+title: "[REQUEST] - <title>"
+labels: [
+  "enhancement", "help wanted", "design"
+]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: "Summary"
+      description: Provide a brief explanation of the design change
+      placeholder: Describe in a few lines how this design improves the code
+    validations:
+      required: true
+  - type: textarea
+    id: basic_example
+    attributes:
+      label: "Example"
+      description: Provide some pseudocode or a basic example of the design change
+      placeholder: include the design improvement here
+    validations:
+      required: true

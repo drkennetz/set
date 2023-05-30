@@ -1,0 +1,15 @@
+name: "📖 Documentation Update"
+description: Create a new ticket for documentation updates
+title: "[DOC] - <title>"
+labels: [
+  "documentation", "help wanted"
+]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: "Summary"
+      description: Provide a brief explanation of the documentation changes
+      placeholder: Describe in a few lines your documentation changes and why they are needed
+    validations:
+      required: true

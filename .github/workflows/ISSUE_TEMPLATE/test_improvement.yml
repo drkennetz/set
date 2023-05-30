@@ -1,0 +1,23 @@
+name: "📝 Test Improvement Request"
+description: Create a new ticket for test improvements
+title: "[REQUEST] - <title>"
+labels: [
+  "enhancement", "help wanted", "test improvement"
+]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: "Summary"
+      description: Provide a brief explanation of the need for test improvement
+      placeholder: Why is this needed? What edge cases are missing?
+    validations:
+      required: true
+  - type: textarea
+    id: basic_example
+    attributes:
+      label: "Basic Example"
+      description: Indicate here some basic examples of things missed by current tests.
+      placeholder: A few specific words about your tests.
+    validations:
+      required: true

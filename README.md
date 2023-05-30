@@ -7,7 +7,7 @@
         <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/drkennetz/set/ci.yml">
     </a>
     <a href="https://codecov.io/github/drkennetz/set" >
-        <img src="https://codecov.io/github/drkennetz/set/branch/main/graph/badge.svg?token=8IHKB8J1AN"/>
+        <img src="https://codecov.io/github/drkennetz/set/branch/main/graph/badge.svg?token=8AVIX80EMG"/>
     </a>
     <a href="https://github.com/drkennetz/set/issues">
         <img src="https://img.shields.io/github/issues/drkennetz/set" alt="Issues">

@@ -1,0 +1,23 @@
+name: "⚡ Code Optimizations Request"
+description: Create a new ticket for code optimizations
+title: "[REQUEST] - <title>"
+labels: [
+  "enhancement", "help wanted", "optimization"
+]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: "Summary"
+      description: Provide a brief explanation of what is being optimized
+      placeholder: Describe in a few lines how this optimizes the code
+    validations:
+      required: true
+  - type: textarea
+    id: basic_example
+    attributes:
+      label: "Benchmark"
+      description: Copy and paste the benchmark results here (scaled to a reasonable size)
+      placeholder: include the benchmark results here
+    validations:
+      required: true
