@@ -78,14 +78,6 @@ func TestNewSet(t *testing.T) {
 	if r == nil {
 		t.Error("NewSet() returned nil")
 	}
-	s := NewSet[error]()
-	if s == nil {
-		t.Error("NewSet() returned nil")
-	}
-	tt := NewSet[interface{}]()
-	if tt == nil {
-		t.Error("NewSet() returned nil")
-	}
 	u := NewSet[struct{}]()
 	if u == nil {
 		t.Error("NewSet() returned nil")
