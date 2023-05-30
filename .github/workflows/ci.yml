@@ -10,13 +10,14 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up Go ${{ matrix.go-version }}
-        uses: actions/setup-go@v2
+      - uses: actions/setup-go@v3
         with:
           go-version: ${{ matrix.go-version }}
-      - name: Run tests
-        run: |
-          go test -v -coverprofile=coverage.txt -covermode=atomic ./...
-      - name: Upload coverage to Codecov
+      - uses: actions/checkout@v3
+      - if: matrix.os == 'ubuntu-latest' || matrix.os == 'macos-latest'
+        run: go test -v -coverprofile=coverage.out -covermode=atomic ./...
+      - if: matrix.os == 'windows-latest'
+        run:
+          go test -b -cover ./...
+      - name: upload coverage reports to CodeCov
         uses: codecov/codecov-action@v3
