@@ -118,6 +118,11 @@ func (s *Set[T]) IsSubset(s2 *Set[T]) bool {
 	return true
 }
 
+// IsSuperset returns true if s is a superset of s2 IE all values in s2 are in s
+func (s *Set[T]) IsSuperset(s2 *Set[T]) bool {
+	return s2.IsSubset(s)
+}
+
 // IsDisjoint returns true if s and s2 have no common values IE their intersection is empty
 func (s *Set[T]) IsDisjoint(s2 *Set[T]) bool {
 	if len(s.m) > len(s2.m) {
@@ -129,11 +134,6 @@ func (s *Set[T]) IsDisjoint(s2 *Set[T]) bool {
 		}
 	}
 	return true
-}
-
-// IsSuperset returns true if s is a superset of s2 IE all values in s2 are in s
-func (s *Set[T]) IsSuperset(s2 *Set[T]) bool {
-	return s2.IsSubset(s)
 }
 
 // IsEqual returns true if s and s2 contain the same values
